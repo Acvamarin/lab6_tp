@@ -36,38 +36,38 @@
 </head>
 <body>
 	
-	<c:url value="/customer/register" var="registerUrl" />
+	<c:url value="/patient/register" var="registerUrl" />
 	<form action="${registerUrl}" method="post">
 		<table>
-			<c:if test="${customer.id ne null}">
+			<c:if test="${patient.id ne null}">
 				<tr>
-				<td>Customer ID:</td>
-					<td><input type="text" name="id" value="${customer.id}" readonly="readonly"></td>
+				<td>Patient ID:</td>
+					<td><input type="text" name="id" value="${patient.id}" readonly="readonly"></td>
 				</tr>
 			</c:if>
 			<tr>
 				<td>First Name:</td>
-				<td><input type="text" name="firstName" value="${customer.firstName}" required></td>
+				<td><input type="text" name="firstName" value="${patient.firstName}" required></td>
 			</tr>
 			<tr>
 				<td>Last Name:</td>
-				<td><input type="text" name="lastName" value="${customer.lastName}" required></td>
+				<td><input type="text" name="lastName" value="${patient.lastName}" required></td>
 			</tr>
 			<tr>
 				<td>Email:</td>
-				<td><input type="email" name="email" value="${customer.email}" required></td>
+				<td><input type="email" name="email" value="${patient.email}" required></td>
 			</tr>
 			<tr>
 				<td>Mobile:</td>
-				<td><input type="tel" pattern="[789][0-9]{9}" name="mobile" value="${customer.mobile}" required></td>
+				<td><input type="tel" pattern="[789][0-9]{9}" name="mobile" value="${patient.mobile}" required></td>
 			</tr>
 
-			<c:if test="${customer.id ne null}">
+			<c:if test="${patient.id ne null}">
 				<tr>
 					<td colspan="2"><input type="submit" value="Update"></td>
 				</tr>
 			</c:if>
-			<c:if test="${customer.id eq null}">
+			<c:if test="${patient.id eq null}">
 				<tr>
 					<td colspan="2"><input type="submit" value="Save"></td>
 				</tr>
@@ -86,22 +86,22 @@
 			<!-- <th>Update</th>
 			<th>Delete</th> -->
 		</tr>
-		<c:forEach items="${customerList}" var="customer">
+		<c:forEach items="${patientList}" var="patient">
 			<tr>
-				<td>${customer.id}</td>
-				<td>${customer.firstName}</td>
-				<td>${customer.lastName}</td>
-				<td>${customer.email}</td>
-				<td>${customer.mobile}</td>
+				<td>${patient.id}</td>
+				<td>${patient.firstName}</td>
+				<td>${patient.lastName}</td>
+				<td>${patient.email}</td>
+				<td>${patient.mobile}</td>
 				
 				<td>
-					<form action="<c:url value="/customer/update"/>" method="post">
-						<input type="hidden" name="custId" value="${customer.id}">
+					<form action="<c:url value="/patient/update"/>" method="post">
+						<input type="hidden" name="custId" value="${patient.id}">
 						<input type="submit" value="Update">
 					</form>
 				<td>
-					<form action="<c:url value="/customer/delete"/>" method="post">
-						<input type="hidden" name="custId" value="${customer.id}">
+					<form action="<c:url value="/patient/delete"/>" method="post">
+						<input type="hidden" name="custId" value="${patient.id}">
 						<input style="background: black;" type="submit" value="Delete">
 					</form>
 				</td>

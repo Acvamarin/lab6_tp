@@ -1,4 +1,4 @@
-package com.codingraja.controller;
+package controller;
 
 import java.io.IOException;
 
@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.codingraja.dao.CustomerDao;
-import com.codingraja.dao.impl.CustomerDaoImpl;
+import dao.PatientDao;
+import dao.impl.PatientDaoImpl;
 
-@WebServlet("/customer/delete")
-public class DeleteCustomerController extends HttpServlet {
+@WebServlet("/patient/delete")
+public class DeletePatientController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public DeleteCustomerController() { // Do Nothing
+	public DeletePatientController() { // Do Nothing
 	}
 
 	@Override
@@ -28,9 +28,9 @@ public class DeleteCustomerController extends HttpServlet {
 			request.getRequestDispatcher("/").forward(request, response);
 		else {
 			Long id = Long.parseLong(custId);
-			CustomerDao customerDao = CustomerDaoImpl.getInstance();
+			PatientDao patientDao = PatientDaoImpl.getInstance();
 
-			customerDao.deleteCustomer(id);
+			patientDao.deletePatient(id);
 
 			response.sendRedirect(request.getContextPath() + "/");
 		}

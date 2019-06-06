@@ -1,4 +1,4 @@
-package com.codingraja.controller;
+package controller;
 
 import java.io.IOException;
 
@@ -8,15 +8,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.codingraja.dao.CustomerDao;
-import com.codingraja.dao.impl.CustomerDaoImpl;
-import com.codingraja.domain.Customer;
+import dao.PatientDao;
+import dao.impl.PatientDaoImpl;
+import entity.Patient;
 
-@WebServlet("/customer/update")
-public class UpdateCustomerController extends HttpServlet {
+
+@WebServlet("/patient/update")
+public class UpdatePatientController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public UpdateCustomerController() { // Do Nothing
+	public UpdatePatientController() { // Do Nothing
 	}
 
 	@Override
@@ -29,10 +30,10 @@ public class UpdateCustomerController extends HttpServlet {
 			request.getRequestDispatcher("/").forward(request, response);
 		else {
 			Long id = Long.parseLong(custId);
-			CustomerDao customerDao = CustomerDaoImpl.getInstance();
-			Customer customer = customerDao.findCustomerById(id);
+			PatientDao patientDao = PatientDaoImpl.getInstance();
+			Patient patient = patientDao.findPatientById(id);
 
-			request.setAttribute("customer", customer);
+			request.setAttribute("patient", patient);
 
 			request.getRequestDispatcher("/").forward(request, response);
 		}

@@ -12,7 +12,7 @@
 			org.postgresql.Driver<!-- com.mysql.jdbc.Driver -->
 		</property>
 		<property name="hibernate.connection.url">
-			jdbc:postgresql://localhost:5432/test<!-- jdbc:mysql://localhost:3306/test -->
+			jdbc:postgresql://localhost:5432/patient<!-- jdbc:mysql://localhost:3306/test -->
 		</property>
 		<property name="hibernate.connection.username">postgres</property>
 		<property name="hibernate.connection.password">oximiron</property>
@@ -24,7 +24,7 @@
 		</property>
 		
 		<!-- Resource Mapping -->
-		<mapping class="com.codingraja.domain.Customer"/>
+		<mapping class="entity.Patient"/>
 		
 	</session-factory>
 </hibernate-configuration>

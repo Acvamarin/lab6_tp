@@ -1,4 +1,4 @@
-package com.codingraja.domain;
+package entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,26 +8,26 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="CUSTOMER_MASTER1")
-public class Customer {
+@Table(name = "patient")
+public class Patient {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="CUSTOMER_ID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "PATIENT_ID")
 	private Long id;
-	@Column(name="FIRST_NAME")
+	@Column(name = "FIRST_NAME")
 	private String firstName;
-	@Column(name="LAST_NAME")
+	@Column(name = "LAST_NAME")
 	private String lastName;
-	@Column(name="EMAIL", unique=true)
+	@Column(name = "EMAIL", unique = true)
 	private String email;
-	@Column(name="MOBILE")
+	@Column(name = "MOBILE")
 	private String mobile;
 
-	public Customer() {
+	public Patient() {
 		// Do Nothing
 	}
 
-	public Customer(String firstName, String lastName, String email, String mobile) {
+	public Patient(String firstName, String lastName, String email, String mobile) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
